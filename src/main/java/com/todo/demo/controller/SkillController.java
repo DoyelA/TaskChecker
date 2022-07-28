@@ -42,16 +42,16 @@ public class SkillController {
     public ResponseEntity<ResponseDTO<Set<SkillDTO>>> getSkills(){
         return new ResponseUtil<Set<SkillDTO>>().generateControllerResponse(skillService.readSkills());
     }
-    @GetMapping(value="/{id}")
+    @GetMapping(value="skill/{id}")
     public ResponseEntity<ResponseDTO<SkillDTO>> getSkill(@PathVariable(value="id") Long id){
         return new ResponseUtil<SkillDTO>().generateControllerResponse(skillService.readSkill(id));
     }
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping(value="/delete/{id}")
     public ResponseEntity<ResponseDTO<Void>> deleteSkill(@PathVariable(value="id") Long id){
         return new ResponseUtil<Void>().generateControllerResponse(skillService.deleteSkill(id));
     }
 
-    @PutMapping(value="/{id}")
+    @PutMapping(value="/update/{id}")
     public ResponseEntity<ResponseDTO<SkillDTO>> updateSkill(@PathVariable(value="id") Long id,@Validated(value=ValidationSequence.class) @RequestBody SkillForm skillForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             final FieldError fieldError = bindingResult.getFieldErrors().get(0);

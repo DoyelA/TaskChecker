@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping(value="/taskill")
+@RequestMapping(value=ApiUrl.TASK_SKILL_URL)
 public class TaskSkillController {
     @Autowired
     TaskSkillService taskSkillService;
@@ -35,7 +35,7 @@ public class TaskSkillController {
         return new ResponseUtil<TaskSkillDTO>().generateControllerResponse(taskSkillService.createTaskSkill(taskSkillForm));
     }
 
-    @PutMapping(value="/{id}")
+    @PutMapping(value="/update/{id}")
     public ResponseEntity<ResponseDTO<TaskSkillDTO>> updateTaskSkill(@PathVariable(value="id") Long id, @Validated(value=ValidationSequence.class) @RequestBody TaskSkillForm taskSkillForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             final FieldError fieldError = bindingResult.getFieldErrors().get(0);
@@ -44,7 +44,7 @@ public class TaskSkillController {
         return new ResponseUtil<TaskSkillDTO>().generateControllerResponse(taskSkillService.updateTaskSkill(id, taskSkillForm));
     }
 
-    @GetMapping(value="/{id}")
+    @GetMapping(value="/get/{id}")
     public ResponseEntity<ResponseDTO<TaskSkillDTO>> getTaskSkillById(@PathVariable(value="id") Long id){
         return new ResponseUtil<TaskSkillDTO>().generateControllerResponse(taskSkillService.getTaskSkill(id));
     }
@@ -54,7 +54,7 @@ public class TaskSkillController {
         return new ResponseUtil<Set<TaskSkillDTO>>().generateControllerResponse(taskSkillService.getAllTaskSkills());
     }
 
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping(value="/delete/{id}")
     public ResponseEntity<ResponseDTO<Void>> deleteTaskSkill(@PathVariable(value="id") Long id){
         return new ResponseUtil<Void>().generateControllerResponse(taskSkillService.deleteTaskSkill(id));
     }

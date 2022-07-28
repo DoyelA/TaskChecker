@@ -29,6 +29,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="81ef48f3-e57f-448c-a894-2e0f777e3b6b">
+      <console name="todo3" type="STANDARD" schema="information_schema" session="Main" />
       <console name="todoapp" type="STANDARD" schema="information_schema" session="Main" />
     </connection>
   </component>

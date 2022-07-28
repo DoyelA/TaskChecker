@@ -21,8 +21,8 @@ import lombok.Data;
 public class TaskSkill {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "task_seq")
-    @SequenceGenerator(allocationSize = 1,initialValue = 1,name="task_seq", schema = "public")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "task_skill_seq")
+    @SequenceGenerator(allocationSize = 1,initialValue = 1,name="task_skill_seq", schema = "public")
     @Column(name="id", nullable=false, unique=true)
     private Long id;
 
